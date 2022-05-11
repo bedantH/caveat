@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAD_Project">
         <activity
+            android:name=".CreateSuggestion"
+            android:exported="false" />
+        <activity
+            android:name=".CreateQuery"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity2"
             android:exported="false" />
         <activity
@@ -20,9 +26,9 @@
         <activity
             android:name=".register_page"
             android:exported="false" />
-        <activity android:name=".DisplayActivity"
-            android:exported="true"
-            />
+        <activity
+            android:name=".DisplayActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

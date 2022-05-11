@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".CreateQuery">
+
+    <ImageButton
+        android:id="@+id/postBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/arrowleft" />
+
+    <TextView
+        android:id="@+id/postTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Post a Query"
+        android:layout_below="@+id/postBack"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postTitle">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    <CheckBox
+        android:id="@+id/isAnonymous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Post your query anonymously"
+         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/isAnonymous"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/queryTitleText"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:text="Enter your name: " />
+
+        <EditText
+            android:id="@+id/queryTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#F0F0F0"
+            android:padding="10dp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/queryCourseText"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:text="Enter your course name: " />
+
+        <EditText
+            android:id="@+id/queryCourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:background="#F0F0F0"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tagsText"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:text="Enter some tags, which your query relates to:  " />
+
+        <EditText
+            android:id="@+id/tags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#F0F0F0"
+            android:padding="10dp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/mainQueryText"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:text="Enter your query: " />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*Note: If you are posting this query anonymously, please don’t specify any person’s name or any information that is sensible about someone’s identification. "
+            android:textStyle="italic"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="10sp"/>
+
+        <EditText
+            android:id="@+id/mainQuery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:background="#F0F0F0"
+            android:scrollbars="vertical"
+            />
+
+
+    </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#363636"
+        android:text="Post Query"
+        android:padding="13dp"
+        app:cornerRadius="40dp"
+        android:drawableEnd="@drawable/plus"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

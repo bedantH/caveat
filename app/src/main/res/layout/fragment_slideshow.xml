@@ -38,6 +38,7 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/myPage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="10dp"
@@ -246,5 +247,15 @@
         </LinearLayout>
 
     </ScrollView>
-
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/postSuggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#363636"
+        android:text="Add Suggestion"
+        android:padding="13dp"
+        app:cornerRadius="40dp"
+        android:drawableEnd="@drawable/plus"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>

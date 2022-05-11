@@ -13,4 +13,6 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="suggestions">Suggestions</string>
     <string name="queries">Queries</string>
+    <string name="back_button">Back Button</string>
+    <string name="post_a_suggestion">Post a Suggestion</string>
 </resources>
