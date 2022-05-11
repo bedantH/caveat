@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/drawable/edittext_outline.xml" value="0.1285" />
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/drawable/edittext_outline_error.xml" value="0.1285" />
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/drawable/edittext_outline_success.xml" value="0.1285" />
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/font/caveat.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/font/fonts.xml" value="0.23958333333333334" />
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/layout/activity_register_page.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/layout/app_bar_dashboard.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/layout/content_dashboard.xml" value="0.209375" />
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/layout/fragment_gallery.xml" value="0.209375" />
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/layout/fragment_slideshow.xml" value="0.209375" />
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/layout/nav_header_dashboard.xml" value="0.209375" />
+        <entry key="..\:/AndroidStudioProjects/MAD-Project/app/src/main/res/menu/activity_main_drawer.xml" value="0.6" />
+        <entry key="..\:/MAD-Project/app/src/main/res/layout/activity_dashboard.xml" value="0.140625" />
+        <entry key="..\:/MAD-Project/app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
+        <entry key="..\:/MAD-Project/app/src/main/res/layout/activity_register_page.xml" value="0.23229166666666667" />
+        <entry key="..\:/MAD-Project/app/src/main/res/layout/app_bar_dashboard.xml" value="0.23229166666666667" />
+        <entry key="..\:/MAD-Project/app/src/main/res/layout/content_dashboard.xml" value="0.23229166666666667" />
+        <entry key="..\:/MAD-Project/app/src/main/res/layout/display_activity.xml" value="0.23229166666666667" />
+        <entry key="..\:/MAD-Project/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
+        <entry key="..\:/MAD-Project/app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
+        <entry key="..\:/MAD-Project/app/src/main/res/layout/main_activity.xml" value="0.23229166666666667" />
+        <entry key="..\:/MAD-Project/app/src/main/res/layout/main_fragment.xml" value="0.23229166666666667" />
+        <entry key="..\:/MAD-Project/app/src/main/res/layout/nav_header_dashboard.xml" value="0.23229166666666667" />
+        <entry key="..\:/MAD-Project/app/src/main/res/menu/activity_main_drawer.xml" value="0.23229166666666667" />
+        <entry key="..\:/MAD-Project/app/src/main/res/menu/dashboard.xml" value="0.115625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
