@@ -2,10 +2,12 @@ package com.example.mad_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -49,7 +51,15 @@ public class CreateQuery extends AppCompatActivity {
             tagsText = tags.getText().toString();
             mainQueryText = mainQuery.getText().toString();
 
-//            dbHelper.insertQuery(queryTitleText, queryCourseText, tagsText, mainQueryText, isAnonymousChecked);
+            Query query = new Query(queryTitleText, queryCourseText, tagsText, mainQueryText, isAnonymousChecked);
+
+            int result = dbHelper.insertQuery(query);
+            if (result == 1) {
+                Toast.makeText(this, "Query Created", Toast.LENGTH_SHORT).show();
+                finish();
+            } else {
+                Toast.makeText(this, "Query Not Created", Toast.LENGTH_SHORT).show();
+            }
         });
 
         backBtn = findViewById(R.id.postBack);

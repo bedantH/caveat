@@ -24,36 +24,25 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:paddingTop="?attr/actionBarSize"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/textField"
-        android:layout_width="match_parent"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        android:scrollbarStyle="outsideOverlay">
-
-        <LinearLayout
-            android:id="@+id/queryLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-
-        </LinearLayout>
-
-    </ScrollView>
-
-    <com.google.android.material.button.MaterialButton
         android:id="@+id/postQuery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#363636"
-        android:text="Add Query"
-        android:padding="13dp"
-        app:cornerRadius="40dp"
-        android:drawableEnd="@drawable/plus"
-        android:textColor="@color/white"
-        android:layout_alignParentBottom="true" />
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        app:srcCompat="@drawable/add_new"/>
 
 </RelativeLayout>

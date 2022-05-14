@@ -5,12 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "mad.db";
+    public static final String DATABASE_NAME = "caveat.db";
     public static final String ID = "id";
 
     /*
@@ -34,22 +35,35 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String query_msg= "QueryMessage";
     public static final String isAnonymousBool = "IsAnonymous";
 
+    public static final String TABLE_NAME1 = "Suggestions";
+    public static final String suggestion_title = "Title";
+    public static final String suggestion_stud_course = "Course";
+    public static final String suggestion_tags = "Tags";
+    public static final String suggestion_msg= "SuggestionMessage";
+    public static final String suggestion_isAnonymousBool = "IsAnonymous";
+
+    String createQuery = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + query_title + " TEXT, " + query_stud_course + " TEXT, " + query_tags + " TEXT, " + query_msg + " TEXT, " + isAnonymousBool + " BOOL)";
+
+    String query2 = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME1 + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + suggestion_title + " TEXT, " + suggestion_stud_course + " TEXT, " + suggestion_tags + " TEXT, " + suggestion_msg + " TEXT, " + suggestion_isAnonymousBool + " BOOL)";
+
+
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String createQuery = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + query_title + " TEXT, " + query_stud_course + " TEXT, " + query_tags + " TEXT, " + query_msg + " TEXT, " + isAnonymousBool + " BOOL)";
-
+        sqLiteDatabase.execSQL(query2);
         sqLiteDatabase.execSQL(createQuery);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME1);
+        onCreate(sqLiteDatabase);
     }
 
-    public void insertQuery(Query query) {
+    public int insertQuery(Query query) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
@@ -62,32 +76,48 @@ public class DBHelper extends SQLiteOpenHelper {
         long result = db.insert(TABLE_NAME, null, contentValues);
 
         if (result == -1) {
-            System.out.println("Query not inserted");
+            return 0;
         } else {
-            System.out.println("Query inserted");
+            return 1;
+        }
+    }
+    
+    public int insertSuggestion(Suggestion suggestion){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(suggestion_title, suggestion.getTitle());
+        contentValues.put(suggestion_stud_course, suggestion.getCourse());
+        contentValues.put(suggestion_tags, suggestion.getTags());
+        contentValues.put(suggestion_msg, suggestion.getSuggestion());
+        contentValues.put(suggestion_isAnonymousBool, suggestion.isAnonymous());
+
+        long result = db.insert(TABLE_NAME1, null, contentValues);
+
+        if (result == -1) {
+            return 0;
+        } else {
+            return 1;
         }
     }
 
-    public List getQueries() {
-        List queries = new ArrayList();
+    public Cursor readAllData() {
+        System.out.println("Read all data called");
+        String query = "SELECT * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
 
-        String selectQuery = "SELECT * FROM " + TABLE_NAME;
+        System.out.println("Cursor count: " + cursor.getCount());
+        return cursor;
+    }
+    
+    public Cursor readAllSuggestions(){
+        System.out.println("Read all suggestion called");
+        String query = "SELECT * FROM " + TABLE_NAME1;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
 
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                Query query = new Query();
-                query.setTitle(cursor.getString(1));
-                query.setCourse(cursor.getString(2));
-                query.setTags(cursor.getString(3));
-                query.setQuery(cursor.getString(4));
-                query.setAnonymous(cursor.getInt(5) == 1);
-
-                queries.add(query);
-                } while (cursor.moveToNext());
-        }
-        return queries;
+        System.out.println("Cursor count: " + cursor.getCount());
+        return cursor;
     }
 }

@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <CheckBox
-            android:id="@+id/isAnonymous"
+            android:id="@+id/isAnonymousSuggestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -48,11 +48,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/isAnonymous"
+            android:layout_below="@id/isAnonymousSuggestion"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/queryTitleText"
+                android:id="@+id/suggestionTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
@@ -61,7 +61,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/queryTitle"
+                android:id="@+id/suggestionTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -71,7 +71,7 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/queryCourseText"
+                android:id="@+id/suggestionCourseText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
@@ -80,7 +80,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/queryCourse"
+                android:id="@+id/suggestionCourse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -90,7 +90,7 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/tagsText"
+                android:id="@+id/suggestionTagsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
@@ -99,7 +99,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/tags"
+                android:id="@+id/suggestionTags"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -109,7 +109,7 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/mainQueryText"
+                android:id="@+id/mainSuggestionText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
@@ -126,7 +126,7 @@
                 android:textStyle="italic" />
 
             <EditText
-                android:id="@+id/mainQuery"
+                android:id="@+id/mainSuggestion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#F0F0F0"
@@ -146,6 +146,7 @@
             android:backgroundTint="#363636"
             android:drawableEnd="@drawable/plus"
             android:padding="13dp"
+            android:id="@+id/createSuggestionReq"
             android:text="Post suggestion"
             android:textColor="@color/white"
             app:cornerRadius="40dp" />
