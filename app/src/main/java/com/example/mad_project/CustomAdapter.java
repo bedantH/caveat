@@ -70,8 +70,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            queryTitle = itemView.findViewById(R.id.queryText);
-            queryMsg = itemView.findViewById(R.id.postedUserText);
+            queryTitle = itemView.findViewById(R.id.postedUserText);
+            queryMsg = itemView.findViewById(R.id.queryText);
             cardView = itemView.findViewById(R.id.myPage);
         }
     }

@@ -57,8 +57,8 @@ public class CustomAdapterSuggestion extends RecyclerView.Adapter<CustomAdapterS
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            suggestionTitle = itemView.findViewById(R.id.queryText);
-            suggestionMsg = itemView.findViewById(R.id.postedUserText);
+            suggestionTitle = itemView.findViewById(R.id.postedUserText);
+            suggestionMsg = itemView.findViewById(R.id.queryText);
             cardView = itemView.findViewById(R.id.myPage);
         }
     }
