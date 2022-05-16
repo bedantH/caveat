@@ -15,6 +15,7 @@
        android:src="@drawable/arrowleft"/>
 
     <TextView
+        android:id="@+id/mainQueryDisplayText"
         android:layout_margin="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,6 +49,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/userNameDisplayText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Anonymous"

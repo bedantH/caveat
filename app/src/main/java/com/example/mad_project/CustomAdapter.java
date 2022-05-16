@@ -2,6 +2,7 @@ package com.example.mad_project;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,11 +40,22 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         System.out.println(queryTitle.get(position).toString());
         System.out.println(queryMsg.get(position).toString());
         holder.queryTitle.setText(queryTitle.get(position).toString());
         holder.queryMsg.setText(queryMsg.get(position).toString());
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DisplayActivity.class);
+                intent.putExtra("queryTitle", queryTitle.get(position).toString());
+                intent.putExtra("queryMsg", queryMsg.get(position).toString());
+                intent.putExtra("queryTags", queryTags.get(position).toString());
+                activity.startActivityForResult(intent, 1);
+            }
+        });
     }
 
     @Override
