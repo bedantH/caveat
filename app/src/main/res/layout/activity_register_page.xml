@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/logbg"
     android:padding="20dp"
+    android:id="@+id/register_page"
     tools:context=".register_page">
 
         <LinearLayout
@@ -53,7 +54,7 @@
                 android:padding="15dp" />
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/editTextEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_outline"
@@ -75,7 +76,7 @@
                 android:hint="Enter your password: "/>
 
             <EditText
-                android:id="@+id/editTextPassword1"
+                android:id="@+id/editTextConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"

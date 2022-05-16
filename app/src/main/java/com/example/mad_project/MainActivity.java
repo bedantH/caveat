@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         login = (MaterialButton) findViewById(R.id.login);
-        editTextTextEmailAddress = (EditText) findViewById(R.id.editTextTextEmailAddress);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextTextEmailAddress = (EditText) findViewById(R.id.loginEmail);
+        editTextPassword = (EditText) findViewById(R.id.loginPassword);
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -50,10 +50,17 @@ public class MainActivity extends AppCompatActivity {
                 } else{
                     editTextPassword.setBackground(getDrawable(R.drawable.edittext_outline_success));
                     editTextTextEmailAddress.setBackground(getDrawable(R.drawable.edittext_outline_success));
-                    Snackbar.make(findViewById(R.id.mainView), "Logged In Successfully", Snackbar.LENGTH_LONG).show();
 
-                    Intent intent = new Intent(MainActivity.this, Dashboard.class);
-                    startActivity(intent);
+                    DBHelper dbHelper = new DBHelper(getApplicationContext());
+                    Boolean isRegisteredUser = dbHelper.checkEmailAndPassword(mail, password);
+
+                    if (isRegisteredUser){
+                        Snackbar.make(findViewById(R.id.mainView), "Login Successful", Snackbar.LENGTH_LONG).show();
+                        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                        startActivity(intent);
+                    } else {
+                        Snackbar.make(findViewById(R.id.mainView), "Invalid email or password", Snackbar.LENGTH_LONG).show();
+                    }
                 }
             }
         });

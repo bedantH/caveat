@@ -45,7 +45,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/loginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_outline"
@@ -55,7 +55,7 @@
             android:padding="15dp" />
 
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/loginPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

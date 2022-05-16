@@ -78,6 +78,7 @@
                             android:src="@drawable/mail"/>
 
                         <TextView
+                            android:id="@+id/queryCount"
                             android:layout_width="wrap_content"
                             android:layout_height="50dp"
                             android:text="04"
@@ -112,6 +113,7 @@
                             android:src="@drawable/mail"/>
 
                         <TextView
+                            android:id="@+id/suggestionCount"
                             android:layout_width="wrap_content"
                             android:layout_height="50dp"
                             android:text="04"

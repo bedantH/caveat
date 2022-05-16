@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.mad_project.DBHelper;
 import com.example.mad_project.R;
 import com.example.mad_project.databinding.FragmentHomeBinding;
 import com.example.mad_project.ui.gallery.GalleryFragment;
@@ -28,6 +29,13 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
         CardView queriesCard = view.findViewById(R.id.bottomCard);
         CardView suggestionCard = view.findViewById(R.id.bottom1_card);
+
+        TextView query = view.findViewById(R.id.queryCount);
+        TextView suggestion = view.findViewById(R.id.suggestionCount);
+
+        DBHelper db = new DBHelper(getContext());
+        query.setText(String.valueOf(db.getCountOfQueries()));
+        suggestion.setText(String.valueOf(db.getCountOfSuggestions()));
 
         suggestionCard.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "caveat.db";
+    public static final String DATABASE_NAME = "caveat1.db";
     public static final String ID = "id";
 
     /*
@@ -42,10 +42,16 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String suggestion_msg= "SuggestionMessage";
     public static final String suggestion_isAnonymousBool = "IsAnonymous";
 
+    public static final String TABLE_NAME2 = "Users";
+    public static final String user_name = "Name";
+    public static final String user_email = "Email";
+    public static final String user_password = "Password";
+
     String createQuery = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + query_title + " TEXT, " + query_stud_course + " TEXT, " + query_tags + " TEXT, " + query_msg + " TEXT, " + isAnonymousBool + " BOOL)";
 
     String query2 = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME1 + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + suggestion_title + " TEXT, " + suggestion_stud_course + " TEXT, " + suggestion_tags + " TEXT, " + suggestion_msg + " TEXT, " + suggestion_isAnonymousBool + " BOOL)";
 
+    String query3 = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME2 + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + user_name + " TEXT, " + user_email + " TEXT, " + user_password + " TEXT)";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -53,6 +59,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(query2);
+        sqLiteDatabase.execSQL(query3);
         sqLiteDatabase.execSQL(createQuery);
     }
 
@@ -60,6 +67,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME1);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME2);
         onCreate(sqLiteDatabase);
     }
 
@@ -110,7 +118,21 @@ public class DBHelper extends SQLiteOpenHelper {
         System.out.println("Cursor count: " + cursor.getCount());
         return cursor;
     }
-    
+
+    public int getCountOfQueries(){
+        String query = "SELECT * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor.getCount();
+    }
+
+    public int getCountOfSuggestions(){
+        String query = "SELECT * FROM " + TABLE_NAME1;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor.getCount();
+    }
+
     public Cursor readAllSuggestions(){
         System.out.println("Read all suggestion called");
         String query = "SELECT * FROM " + TABLE_NAME1;
@@ -119,5 +141,44 @@ public class DBHelper extends SQLiteOpenHelper {
 
         System.out.println("Cursor count: " + cursor.getCount());
         return cursor;
+    }
+
+    public int insertUser(User user){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(user_name, user.getName());
+        contentValues.put(user_email, user.getEmail());
+        contentValues.put(user_password, user.getPassword());
+
+        long result = db.insert(TABLE_NAME2, null, contentValues);
+
+        if (result == -1) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    public Cursor readAllUsers(){
+        System.out.println("Read all users called");
+        String query = "SELECT * FROM " + TABLE_NAME2;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        System.out.println("Cursor count: " + cursor.getCount());
+        return cursor;
+    }
+
+    public boolean checkEmailAndPassword(String email, String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_NAME2 + " WHERE " + user_email + " = '" + email + "' AND " + user_password + " = '" + password + "'";
+        Cursor cursor = db.rawQuery(query, null);
+        if(cursor.getCount() > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
