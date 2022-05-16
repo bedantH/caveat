@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mad_project.DBHelper;
+import com.example.mad_project.Dashboard;
 import com.example.mad_project.R;
 import com.example.mad_project.databinding.FragmentHomeBinding;
 import com.example.mad_project.ui.gallery.GalleryFragment;
@@ -20,10 +21,16 @@ import com.example.mad_project.ui.slideshow.SlideshowFragment;
 
 public class HomeFragment extends Fragment {
 
+    String user_name;
+    TextView dispUsername;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-       View root = inflater.inflate(R.layout.fragment_home, container, false);
-       return root;
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        Dashboard dashboard = new Dashboard();
+        user_name = dashboard.getUsername();
+
+        return root;
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
@@ -32,6 +39,9 @@ public class HomeFragment extends Fragment {
 
         TextView query = view.findViewById(R.id.queryCount);
         TextView suggestion = view.findViewById(R.id.suggestionCount);
+        dispUsername = view.findViewById(R.id.displayUserNameDashboard);
+
+        dispUsername.setText(user_name);
 
         DBHelper db = new DBHelper(getContext());
         query.setText(String.valueOf(db.getCountOfQueries()));

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     MaterialButton login;
     EditText editTextTextEmailAddress;
     EditText editTextPassword;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +54,19 @@ public class MainActivity extends AppCompatActivity {
                     editTextTextEmailAddress.setBackground(getDrawable(R.drawable.edittext_outline_success));
 
                     DBHelper dbHelper = new DBHelper(getApplicationContext());
-                    Boolean isRegisteredUser = dbHelper.checkEmailAndPassword(mail, password);
+                    Cursor user = dbHelper.checkEmailAndPassword(mail, password);
 
-                    if (isRegisteredUser){
-                        Snackbar.make(findViewById(R.id.mainView), "Login Successful", Snackbar.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
-                        startActivity(intent);
-                    } else {
+                    if (user.getCount() == 0){
                         Snackbar.make(findViewById(R.id.mainView), "Invalid email or password", Snackbar.LENGTH_LONG).show();
+                    } else{
+                        System.out.println("Success");
+//                        get the username from database
+                        user.moveToFirst();
+                        username = user.getString(user.getColumnIndex("Name"));
+                        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                        intent.putExtra("username", username);
+                        intent.putExtra("email", mail);
+                        startActivityForResult(intent, 1);
                     }
                 }
             }

@@ -21,6 +21,7 @@
         app:srcCompat="@drawable/user" />
 
     <TextView
+        android:id="@+id/displayUserName"
         android:fontFamily="@font/poppins_semibold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +31,7 @@
 
     <TextView
         android:fontFamily="@font/poppins_regular"
-        android:id="@+id/textView"
+        android:id="@+id/displayUserEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="bedanthota@yahoo.com" />

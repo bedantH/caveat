@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.example.mad_project.ui.gallery.GalleryFragment;
 import com.example.mad_project.ui.home.HomeFragment;
@@ -30,9 +31,13 @@ public class Dashboard extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-
+    TextView name,email;
+    public String user_name = "User";
+    public String user_email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        user_name = getIntent().getStringExtra("username");
+        user_email = getIntent().getStringExtra("email");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_content_dashboard, new HomeFragment()).commit();
@@ -42,6 +47,11 @@ public class Dashboard extends AppCompatActivity {
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
 
+        name = (TextView) navigationView.getHeaderView(0).findViewById(R.id.displayUserName);
+        email = (TextView) navigationView.getHeaderView(0).findViewById(R.id.displayUserEmail);
+
+        name.setText(user_name);
+        email.setText(user_email);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_open, R.string.navigation_close);
         drawerLayout.addDrawerListener(toggle);
@@ -66,4 +76,7 @@ public class Dashboard extends AppCompatActivity {
         return true ;
     };
 
+    public String getUsername(){
+        return user_name;
+    }
 }

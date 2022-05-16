@@ -41,6 +41,7 @@
                         android:textSize="35dp" />
 
                     <TextView
+                        android:id="@+id/displayUserNameDashboard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_semibold"
