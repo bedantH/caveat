@@ -12,21 +12,20 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+public class CustomAdapterSuggestion extends RecyclerView.Adapter<CustomAdapterSuggestion.ViewHolder> {
 
     private Context context;
     private Activity activity;
-    private ArrayList queryTitle, queryCourse, queryTags, queryMsg, isAnonymous;
+    private ArrayList suggestionTitle, suggestionCourse, suggestionTags, suggestionMsg, isAnonymous;
 
-    public CustomAdapter(Context context, Activity activity, ArrayList queryTitle, ArrayList queryCourse, ArrayList queryTags, ArrayList queryMsg, ArrayList isAnonymous) {
+    public CustomAdapterSuggestion(Context context, Activity activity, ArrayList suggestionTitle, ArrayList suggestionCourse, ArrayList suggestionTags, ArrayList suggestionMsg, ArrayList isAnonymous) {
         this.context = context;
         this.activity = activity;
-        this.queryTitle = queryTitle;
-        this.queryCourse = queryCourse;
-        this.queryTags = queryTags;
-        this.queryMsg = queryMsg;
+        this.suggestionTitle = suggestionTitle;
+        this.suggestionCourse = suggestionCourse;
+        this.suggestionTags = suggestionTags;
+        this.suggestionMsg = suggestionMsg;
         this.isAnonymous = isAnonymous;
     }
 
@@ -40,26 +39,26 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        System.out.println(queryTitle.get(position).toString());
-        System.out.println(queryMsg.get(position).toString());
-        holder.queryTitle.setText(queryTitle.get(position).toString());
-        holder.queryMsg.setText(queryMsg.get(position).toString());
+        System.out.println(suggestionTitle.get(position).toString());
+        System.out.println(suggestionMsg.get(position).toString());
+        holder.suggestionTitle.setText(suggestionTitle.get(position).toString());
+        holder.suggestionMsg.setText(suggestionMsg.get(position).toString());
     }
 
     @Override
     public int getItemCount() {
-        return queryTitle.size();
+        return suggestionTitle.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
-        TextView queryTitle, queryMsg;
+        TextView suggestionTitle, suggestionMsg;
         CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            queryTitle = itemView.findViewById(R.id.queryText);
-            queryMsg = itemView.findViewById(R.id.postedUserText);
+
+            suggestionTitle = itemView.findViewById(R.id.queryText);
+            suggestionMsg = itemView.findViewById(R.id.postedUserText);
             cardView = itemView.findViewById(R.id.myPage);
         }
     }

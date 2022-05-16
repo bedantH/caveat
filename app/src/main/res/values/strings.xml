@@ -9,8 +9,8 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_gallery">Queries</string>
+    <string name="menu_slideshow">Suggestions</string>
     <string name="suggestions">Suggestions</string>
     <string name="queries">Queries</string>
     <string name="back_button">Back Button</string>

@@ -46,6 +46,7 @@ public class GalleryFragment extends Fragment {
 
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
 
+
         return inflater.inflate(R.layout.fragment_gallery, container, false);
     }
 

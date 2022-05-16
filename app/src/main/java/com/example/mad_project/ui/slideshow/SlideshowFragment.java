@@ -14,14 +14,15 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mad_project.CreateQuery;
 import com.example.mad_project.CreateSuggestion;
+import com.example.mad_project.CustomAdapterSuggestion;
 import com.example.mad_project.DBHelper;
 import com.example.mad_project.DisplayActivity;
 import com.example.mad_project.R;
-import com.example.mad_project.databinding.FragmentGalleryBinding;
 import com.example.mad_project.databinding.FragmentSlideshowBinding;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -59,6 +60,10 @@ public class SlideshowFragment extends Fragment {
         isAnonymous = new ArrayList<>();
 
         storeData();
+
+        CustomAdapterSuggestion adapter = new CustomAdapterSuggestion(getContext(), getActivity(), suggestionTitle, suggestionCourse, suggestionTags, suggestionMsg, isAnonymous);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
