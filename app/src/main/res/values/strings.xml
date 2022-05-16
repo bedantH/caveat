@@ -15,4 +15,6 @@
     <string name="queries">Queries</string>
     <string name="back_button">Back Button</string>
     <string name="post_a_suggestion">Post a Suggestion</string>
+    <string name="navigation_open">Navigaton Open</string>
+    <string name="navigation_close">Navigation Close</string>
 </resources>
